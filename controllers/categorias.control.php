@@ -17,12 +17,29 @@
   function run(){
     //Agregar codigo aqui
     $categorias= array();
-    $categorias = obtenerCategorias();
+
 
     //---------------
+    $ctgdsc = $_POST["txtCtgDsc"];
+    $ctgest = $_POST["cmbCtgEst"];
+
+    if(isset($_POST["btnIngresar"])){
+      ingresarCategoria($ctgdsc,$ctgest);
+    }elseif (isset($_POST["btnActualizar"]) {
+      actualizarCategoria($ctgcod,$ctgdsc,$ctgest);      
+    }
+
+    if(isset($_GET["modo"])){
+
+      renderizar("formularioCategorias",array());
+
+    }else {
+      $categorias = obtenerCategorias();
+      renderizar("categorias",array("categorias"=>$categorias));
+    }
 
                                 //areglo de arreglos
-    renderizar("categorias",array("categorias"=>$categorias));
+
     //debe existir un archivo en vistas
 
   }

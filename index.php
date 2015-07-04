@@ -5,10 +5,15 @@
     require_once("libs/utilities.php");
 
     $pageRequest = "home";
+    $modo = "INS";
 
 
     if(isset($_GET["page"])){
         $pageRequest = $_GET["page"];
+    }
+
+    if(isset($_GET["modo"])){
+      $modo =$_GET["modo"];
     }
 
     //Incorporando los midlewares son codigos que se deben ejecutar
