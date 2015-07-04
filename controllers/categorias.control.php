@@ -29,10 +29,9 @@
       $ctgcod = $_GET["cod"];
       actualizarCategoria($ctgcod,$ctgdsc,$ctgest);
     }elseif (isset($_POST["btnEliminar"])) {
-      $ctgdsc = $_POST["txtCtgDsc"];
-      $ctgest = $_POST["cmbCtgEst"];
+
       $ctgcod = $_GET["cod"];
-      eliminarCategoria($ctgcod,$ctgdsc,$ctgest);
+      eliminarCategoria($ctgcod);
     }
 
     if(isset($_GET["modo"])){

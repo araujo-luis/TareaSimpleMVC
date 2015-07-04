@@ -14,6 +14,12 @@ function ingresarCategoria($ctgdsc,$ctgest){
   return ejecutarNonQuery($query);
 }
 
+function eliminarCategoria($ctgcod){
+  $query="DELETE FROM categorias  WHERE `categorias`.`ctgcod` = $ctgcod;";
+echo "ELIMINADO";
+  return ejecutarNonQuery($query);
+}
+
 function actualizarCategoria($ctgcod,$ctgdsc,$ctgest){
 
 
