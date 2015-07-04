@@ -18,20 +18,58 @@
     //Agregar codigo aqui
     $categorias= array();
 
-
-    //---------------
-    $ctgdsc = $_POST["txtCtgDsc"];
-    $ctgest = $_POST["cmbCtgEst"];
-
     if(isset($_POST["btnIngresar"])){
+      $ctgdsc = $_POST["txtCtgDsc"];
+      $ctgest = $_POST["cmbCtgEst"];
+
       ingresarCategoria($ctgdsc,$ctgest);
-    }elseif (isset($_POST["btnActualizar"]) {
-      actualizarCategoria($ctgcod,$ctgdsc,$ctgest);      
+    }elseif (isset($_POST["btnActualizar"])) {
+      $ctgdsc = $_POST["txtCtgDsc"];
+      $ctgest = $_POST["cmbCtgEst"];
+      $ctgcod = $_GET["cod"];
+      actualizarCategoria($ctgcod,$ctgdsc,$ctgest);
+    }elseif (isset($_POST["btnEliminar"])) {
+      $ctgdsc = $_POST["txtCtgDsc"];
+      $ctgest = $_POST["cmbCtgEst"];
+      $ctgcod = $_GET["cod"];
+      eliminarCategoria($ctgcod,$ctgdsc,$ctgest);
     }
 
     if(isset($_GET["modo"])){
 
-      renderizar("formularioCategorias",array());
+      $modo= $_GET["modo"];
+
+      switch($modo){
+          case 'ACT':
+            $categoria = obtenerCategoria($_GET["cod"]);
+
+            $datos = array(
+              "actualizar"=> 'ACT',
+              "ctgcod" =>$categoria["ctgcod"],
+              "ctgdsc" =>$categoria["ctgdsc"],
+              "ctgest" => ($categoria["ctgest"] == "INA")? "ACT": NULL
+              );
+
+            break;
+
+          case 'INS':
+
+          $datos = array(
+            "ingresar"=> 'INS'
+            );
+            break;
+
+          case 'ELI':
+          $categoria = obtenerCategoria($_GET["cod"]);
+          $datos = array(
+            "eliminar"=> 'ELI',
+            "ctgcod" =>$categoria["ctgcod"],
+            "ctgdsc" =>$categoria["ctgdsc"],
+            "ctgest" => ($categoria["ctgest"] == "INA")? "ACT": NULL
+            );
+          break;
+      }
+      renderizar("formularioCategorias",$datos);
 
     }else {
       $categorias = obtenerCategorias();
