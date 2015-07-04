@@ -1,5 +1,5 @@
 <h2>Listado de Productos</h2>
-<a href="">Agregar Productos</a>
+<a href="index.php?page=productos&modo=INS">Agregar Productos</a>
 <table style="margin:2em; width:90%;">
   <tr>
     <th>
@@ -53,8 +53,8 @@
       {{prdest}}
     </td>
     <td>
-      <a href="">Actualizar</a> |
-      <a href="">Eliminar</a>
+      <a href="index.php?page=productos&modo=ACT&cod={{prdcod}}">Actualizar</a> |
+      <a href="index.php?page=productos&modo=ELI&cod={{prdcod}}">Eliminar</a>
 
     </td>
   </tr>
