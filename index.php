@@ -6,6 +6,7 @@
 
     $pageRequest = "home";
 
+
     if(isset($_GET["page"])){
         $pageRequest = $_GET["page"];
     }

@@ -24,12 +24,12 @@
     </td>
     <td>
 
-      <a href="">{{ctgdsc}}</a>
+      {{ctgdsc}}
     </td>
     <td>
       {{ctgest}}
     </td>
-    <td>  
+    <td>
       <a href="">Actualizar</a> |
       <a href="">Eliminar</a>
 

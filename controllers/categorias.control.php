@@ -7,7 +7,7 @@
   require_once("libs/template_engine.php");
   //Agregar requires de modelos aqui
   //ej require_once("models/tabla.model.php")
-
+  require_once("models/categorias.model.php");
 
 
   //========================
@@ -17,23 +17,8 @@
   function run(){
     //Agregar codigo aqui
     $categorias= array();
-    $categorias[]= array(
-      "ctgcod" =>1,
-      "ctgdsc" => "Categoria",
-      "ctgest"=> "ACT"
-    );
+    $categorias = obtenerCategorias();
 
-    $categorias[]= array(
-      "ctgcod" =>2,
-      "ctgdsc" => "Categoria 2",
-      "ctgest"=> "ACT"
-    );
-
-    $categorias[]= array(
-      "ctgcod" =>3,
-      "ctgdsc" => "Categoria 3",
-      "ctgest"=> "ACT"
-    );
     //---------------
 
                                 //areglo de arreglos
